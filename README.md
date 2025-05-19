@@ -17,6 +17,10 @@
       C:\Users\astra\Folia\Folia-Server\build\libs
       java -jar C:\Users\astra\Folia\Folia-Server\build\libs\folia-server-1.21.4-R0.1-SNAPSHOT-dev.jar
 
+      java -jar C:\Users\astra\Folia\build\libs\folia-paperclip-1.21.4-R0.1-SNAPSHOT-mojmap.jar
+        notepad C:\Users\astra\Folia\Folia-Server\eula.txt
+        eula=true
+
 
 Agora você pode rodar o servidor com o seguinte comando no PowerShell ou CMD:
 java -jar C:\Users\astra\Folia\Folia-Server\build\libs\folia-server.jar
