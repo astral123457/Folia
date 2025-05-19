@@ -7,15 +7,16 @@
 ## Overview
 
 - Abra o PowerShell ou CMD e execute:
-git clone --recursive https://github.com/PaperMC/Folia.git
-cd Folia
-Tente compilar novamente
-git pull --recurse-submodules
-./gradlew paperclip
-./gradlew clean createMojmapPaperclipJar --refresh-dependencies
-Isso mesmo! 🚀 O .jar do Folia Server deve estar localizado em:
-C:\Users\astra\Folia\Folia-Server\build\libs
-java -jar C:\Users\astra\Folia\Folia-Server\build\libs\folia-server-1.21.4-R0.1-SNAPSHOT-dev.jar
+- 
+      git clone --recursive https://github.com/PaperMC/Folia.git
+      cd Folia
+      Tente compilar novamente
+      git pull --recurse-submodules
+      ./gradlew paperclip
+      ./gradlew clean createMojmapPaperclipJar --refresh-dependencies
+      Isso mesmo! 🚀 O .jar do Folia Server deve estar localizado em:
+      C:\Users\astra\Folia\Folia-Server\build\libs
+      java -jar C:\Users\astra\Folia\Folia-Server\build\libs\folia-server-1.21.4-R0.1-SNAPSHOT-dev.jar
 
 
 Agora você pode rodar o servidor com o seguinte comando no PowerShell ou CMD:
