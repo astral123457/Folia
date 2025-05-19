@@ -14,7 +14,6 @@
       git pull --recurse-submodules
       ./gradlew paperclip
       ./gradlew clean createMojmapPaperclipJar --refresh-dependencies
-      Isso mesmo! 🚀 O .jar do Folia Server deve estar localizado em:
       C:\Users\astra\Folia\Folia-Server\build\libs
       java -jar C:\Users\astra\Folia\Folia-Server\build\libs\folia-server-1.21.4-R0.1-SNAPSHOT-dev.jar
 
