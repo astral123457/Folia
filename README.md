@@ -6,6 +6,31 @@
 
 ## Overview
 
+- Abra o PowerShell ou CMD e execute:
+git clone --recursive https://github.com/PaperMC/Folia.git
+cd Folia
+Tente compilar novamente
+git pull --recurse-submodules
+./gradlew paperclip
+./gradlew clean createMojmapPaperclipJar --refresh-dependencies
+Isso mesmo! 🚀 O .jar do Folia Server deve estar localizado em:
+C:\Users\astra\Folia\Folia-Server\build\libs
+java -jar C:\Users\astra\Folia\Folia-Server\build\libs\folia-server-1.21.4-R0.1-SNAPSHOT-dev.jar
+
+
+Agora você pode rodar o servidor com o seguinte comando no PowerShell ou CMD:
+java -jar C:\Users\astra\Folia\Folia-Server\build\libs\folia-server.jar
+
+
+🔹 Se o nome do arquivo .jar for diferente, você pode listar os arquivos na pasta para confirmar:
+ls C:\Users\astra\Folia\Folia-Server\build\libs
+
+
+Caso tenha qualquer erro ao iniciar o servidor, me avise e podemos resolver juntos! 🚀🔧
+
+
+
+
 Folia groups nearby loaded chunks to form an "independent region."
 See [the PaperMC documentation](https://docs.papermc.io/folia/reference/region-logic) for exact details on how Folia
 will group nearby chunks.
