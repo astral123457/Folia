@@ -4,6 +4,7 @@ plugins {
     java
     `maven-publish`
     id("io.papermc.paperweight.patcher") version "1.7.7"
+    id("com.github.johnrengelman.shadow") version "8.1.1" // Plugin Shadow para empacotar dependências
 }
 
 val paperMavenPublicUrl = "https://repo.papermc.io/repository/maven-public/"
@@ -19,6 +20,10 @@ dependencies {
     remapper("net.fabricmc:tiny-remapper:0.10.3:fat")
     decompiler("org.vineflower:vineflower:1.10.1")
     paperclip("io.papermc:paperclip:3.0.3")
+
+    // Dependência faltando para evitar o erro de NoClassDefFoundError
+    implementation("net.sf.jopt-simple:jopt-simple:5.0.4")
+    runtimeOnly("net.sf.jopt-simple:jopt-simple:5.0.4")
 }
 
 allprojects {
@@ -74,33 +79,19 @@ paperweight {
     }
 }
 
+// Configuração do ShadowJar para empacotar todas as dependências corretamente
+tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
+    dependencies {
+        include(dependency("net.sf.jopt-simple:jopt-simple"))
+    }
+}
+
 tasks.generateDevelopmentBundle {
     apiCoordinates.set("dev.folia:folia-api")
     libraryRepositories.addAll(
         "https://repo.maven.apache.org/maven2/",
         paperMavenPublicUrl,
     )
-}
-
-allprojects {
-    publishing {
-        repositories {
-            maven("https://repo.papermc.io/repository/maven-snapshots/") {
-                name = "paperSnapshots"
-                credentials(PasswordCredentials::class)
-            }
-        }
-    }
-}
-
-publishing {
-    if (project.hasProperty("publishDevBundle")) {
-        publications.create<MavenPublication>("devBundle") {
-            artifact(tasks.generateDevelopmentBundle) {
-                artifactId = "dev-bundle"
-            }
-        }
-    }
 }
 
 tasks.withType<RebuildGitPatches> {
